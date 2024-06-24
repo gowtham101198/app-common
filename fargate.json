@@ -1,0 +1,31 @@
+{
+  "executionRoleArn": "arn:aws:iam::249463715061:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/app-common",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "portMappings": [
+        {
+          "hostPort": 3000,
+          "protocol": "tcp",
+          "containerPort": 3000
+        }
+      ],
+      "image": "249463715061.dkr.ecr.us-east-1.amazonaws.com/app-common:latest",
+      "name": "app-common"
+    }
+  ],
+  "memory": "512",
+  "taskRoleArn": "arn:aws:iam::249463715061:role/ecsTaskExecutionRole",
+  "family": "app-common",
+  "requiresCompatibilities": ["FARGATE"],
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "volumes": []
+}
